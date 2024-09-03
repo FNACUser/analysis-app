@@ -1,0 +1,50 @@
+{% extends base %}
+
+{% block postamble %}
+  <style>
+    {% include 'styles.css' %}
+.grid-container_1 {
+  display: grid;
+  grid-template-columns: 500px 200px 200px;
+   grid-template-rows: auto auto;	   
+grid-row-gap: 100px;
+grid-column-gap: 200px;
+  background-color: #2196F3;
+  padding: 100px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 190px 1.7fr 1.7fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 30px 10px;
+  grid-template-areas:
+    "boton plot1 plot2"
+    "boton plot3 plot4";
+}
+
+.boton { grid-area: boton; }
+
+.plot1 { grid-area: plot1; }
+
+.plot2 { grid-area: plot2; }
+
+.plot3 { grid-area: plot3; }
+
+.plot4 { grid-area: plot4; }
+
+
+  </style>
+{% endblock %}
+
+{% block contents%}
+
+<div class="grid-container">
+  <div class="boton">{{ embed(roots.inputs) }} </div>
+  <div class="plot1">{{ embed(roots.plot_serie_tiempo) }}</div>
+  <div class="plot2">{{ embed(roots.plot_retornos) }}</div>
+  <div class="plot4">{{ embed(roots.plot_precios) }}</div>
+  <div class="plot3">{{ embed(roots.p_vol) }}</div>
+</div>
+
+       
+{% endblock %}
